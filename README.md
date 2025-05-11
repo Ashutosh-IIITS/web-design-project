@@ -1,3 +1,3 @@
 # web-design-project
-attendance management system project
-Designes by Ashutosh Maurya 
+project attendance management system 
+Designed by Ashutosh Maurya 
