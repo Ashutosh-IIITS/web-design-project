@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Attendance Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="college-info">
+                <img src="https://universitykart.b-cdn.net/Content/upload/admin/uibti1gw.4ea.png" alt="IIIT Sonepat Logo" class="college-logo">
+                <div class="college-details">
+                    <h1>Indian Institute of Information Technology, Sonepat</h1>
+                    <p>An Institute of National Importance</p>
+                </div>
+            </div>
+            <div class="attendance-title">
+                <h2>Admin Dashboard</h2>
+                <p id="adminInfo">Welcome, Administrator</p>
+            </div>
+        </header>
+
+        <nav class="dashboard-nav">
+            <ul>
+                <li class="active"><a href="#system-overview">System Overview</a></li>
+                <li><a href="#manage-users">Manage Users</a></li>
+                <li><a href="#attendance-reports">Attendance Reports</a></li>
+                <li><a href="#settings">Settings</a></li>
+                <li class="logout"><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="system-overview" class="dashboard-section">
+                <h2>System Overview</h2>
+                <div class="overview-cards">
+                    <div class="overview-card">
+                        <div class="card-icon students-icon">👥</div>
+                        <div class="card-content">
+                            <div class="card-title">Total Students</div>
+                            <div class="card-value" id="totalStudents">--</div>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon classes-icon">📚</div>
+                        <div class="card-content">
+                            <div class="card-title">Total Classes</div>
+                            <div class="card-value" id="totalClasses">--</div>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon users-icon">👤</div>
+                        <div class="card-content">
+                            <div class="card-title">System Users</div>
+                            <div class="card-value" id="totalUsers">--</div>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon attendance-icon">📊</div>
+                        <div class="card-content">
+                            <div class="card-title">Avg. Attendance</div>
+                            <div class="card-value" id="averageAttendance">--</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="overview-charts">
+                    <div class="chart-container">
+                        <h3>Attendance Trends</h3>
+                        <canvas id="attendanceTrend"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Attendance Distribution</h3>
+                        <canvas id="attendanceDistribution"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="manage-users" class="dashboard-section">
+                <h2>Manage Users</h2>
+                <div class="manage-tabs">
+                    <div class="tab-headers">
+                        <div class="tab-header active" data-tab="students">Students</div>
+                        <div class="tab-header" data-tab="professors">Professors</div>
+                        <div class="tab-header" data-tab="crs">Class Representatives</div>
+                        <div class="tab-header" data-tab="admins">Administrators</div>
+                    </div>
+                    
+                    <div class="tab-content">
+                        <div class="tab-panel active" id="students-panel">
+                            <div class="panel-actions">
+                                <button id="addStudentBtn" class="add-btn">Add Student</button>
+                                <button id="importStudentBtn" class="import-btn">Import CSV</button>
+                                <button id="exportStudentBtn" class="export-btn">Export</button>
+                            </div>
+                            
+                            <div class="search-filter">
+                                <input type="text" id="searchStudents" placeholder="Search students...">
+                            </div>
+                            
+                            <div class="users-table-container">
+                                <table id="studentsTable" class="users-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Roll Number</th>
+                                            <th>Name</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="studentsTableBody">
+                                        <!-- Students list will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-panel" id="professors-panel">
+                            <div class="panel-actions">
+                                <button id="addProfessorBtn" class="add-btn">Add Professor</button>
+                            </div>
+                            
+                            <div class="search-filter">
+                                <input type="text" id="searchProfessors" placeholder="Search professors...">
+                            </div>
+                            
+                            <div class="users-table-container">
+                                <table id="professorsTable" class="users-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Department</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="professorsTableBody">
+                                        <!-- Professors list will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-panel" id="crs-panel">
+                            <!-- CRs panel content here -->
+                        </div>
+                        
+                        <div class="tab-panel" id="admins-panel">
+                            <!-- Admins panel content here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="attendance-reports" class="dashboard-section">
+                <h2>Attendance Reports</h2>
+                <div class="report-filters">
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label for="reportType">Report Type:</label>
+                            <select id="reportType">
+                                <option value="daily">Daily Report</option>
+                                <option value="weekly">Weekly Report</option>
+                                <option value="monthly">Monthly Report</option>
+                                <option value="custom">Custom Range</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group" id="dateRangeFilter">
+                            <label for="startDate">From:</label>
+                            <input type="date" id="startDate">
+                            <label for="endDate">To:</label>
+                            <input type="date" id="endDate">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label for="departmentFilter">Department:</label>
+                            <select id="departmentFilter">
+                                <option value="all">All Departments</option>
+                                <option value="cse">Computer Science</option>
+                                <option value="it">Information Technology</option>
+                                <option value="ece">Electronics & Communication</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="yearFilter">Year:</label>
+                            <select id="yearFilter">
+                                <option value="all">All Years</option>
+                                <option value="1">1st Year</option>
+                                <option value="2">2nd Year</option>
+                                <option value="3">3rd Year</option>
+                                <option value="4">4th Year</option>
+                            </select>
+                        </div>
+                        
+                        <button id="generateReport" class="generate-btn">Generate Report</button>
+                    </div>
+                </div>
+                
+                <div class="report-container">
+                    <div class="report-header">
+                        <h3 id="reportTitle">Attendance Report</h3>
+                        <div class="report-actions">
+                            <button id="printReport" class="action-btn">Print</button>
+                            <button id="downloadPDF" class="action-btn">PDF</button>
+                            <button id="downloadExcel" class="action-btn">Excel</button>
+                        </div>
+                    </div>
+                    
+                    <div id="reportContent" class="report-content">
+                        <!-- Report content will be generated here -->
+                    </div>
+                </div>
+            </section>
+
+            <section id="settings" class="dashboard-section">
+                <h2>System Settings</h2>
+                <div class="settings-container">
+                    <div class="settings-group">
+                        <h3>General Settings</h3>
+                        <form id="generalSettingsForm">
+                            <div class="setting-item">
+                                <label for="instituteNameField">Institute Name:</label>
+                                <input type="text" id="instituteNameField" value="Indian Institute of Information Technology, Sonepat">
+                            </div>
+                            <div class="setting-item">
+                                <label for="minimumAttendanceField">Minimum Attendance Percentage:</label>
+                                <input type="number" id="minimumAttendanceField" value="75" min="50" max="100">
+                            </div>
+                            <div class="setting-item">
+                                <label for="attendanceDisplayField">Attendance Display Mode:</label>
+                                <select id="attendanceDisplayField">
+                                    <option value="percentage">Percentage</option>
+                                    <option value="fraction">Fraction (e.g., 15/20)</option>
+                                    <option value="both">Both</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="save-settings-btn">Save Settings</button>
+                        </form>
+                    </div>
+                    
+                    <div class="settings-group">
+                        <h3>Email Notifications</h3>
+                        <form id="emailSettingsForm">
+                            <div class="setting-item">
+                                <label for="lowAttendanceAlertField">Low Attendance Alert Threshold:</label>
+                                <input type="number" id="lowAttendanceAlertField" value="80" min="50" max="100">
+                            </div>
+                            <div class="setting-item checkbox-item">
+                                <input type="checkbox" id="studentNotificationsField" checked>
+                                <label for="studentNotificationsField">Enable Student Notifications</label>
+                            </div>
+                            <div class="setting-item checkbox-item">
+                                <input type="checkbox" id="parentNotificationsField" checked>
+                                <label for="parentNotificationsField">Enable Parent Notifications</label>
+                            </div>
+                            <button type="submit" class="save-settings-btn">Save Settings</button>
+                        </form>
+                    </div>
+                    
+                    <div class="settings-group">
+                        <h3>System Maintenance</h3>
+                        <div class="maintenance-actions">
+                            <button id="backupDataBtn" class="maintenance-btn">Backup Data</button>
+                            <button id="restoreDataBtn" class="maintenance-btn">Restore Data</button>
+                            <button id="clearCacheBtn" class="maintenance-btn">Clear Cache</button>
+                            <button id="resetSystemBtn" class="maintenance-btn danger">Reset System</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin-dashboard.js"></script>
+</body>
+</html> 

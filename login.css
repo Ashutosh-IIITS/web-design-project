@@ -1,0 +1,109 @@
+.login-section {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+#loginForm .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#loginForm label {
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+#loginForm input,
+#loginForm select {
+    padding: 0.9rem;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+#loginForm input:focus,
+#loginForm select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    outline: none;
+}
+
+.login-btn {
+    margin-top: 1rem;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(5, 131, 215, 0.3);
+    background: linear-gradient(135deg, #2980b9, #1a5276);
+}
+
+.login-info {
+    background: rgba(244, 246, 249, 0.9);
+    padding: 1.2rem;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.login-info p {
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    color: #2c3e50;
+}
+
+.login-info ul {
+    padding-left: 1.5rem;
+    color: #7f8c8d;
+}
+
+.login-info li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .login-section {
+        padding: 1.5rem;
+    }
+    
+    #loginForm input,
+    #loginForm select {
+        padding: 0.8rem;
+    }
+    
+    .login-btn {
+        padding: 0.9rem;
+    }
+} 

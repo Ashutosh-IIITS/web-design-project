@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Attendance Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="college-info">
+                <img src="https://universitykart.b-cdn.net/Content/upload/admin/uibti1gw.4ea.png" alt="IIIT Sonepat Logo" class="college-logo">
+                <div class="college-details">
+                    <h1>Indian Institute of Information Technology, Sonepat</h1>
+                    <p>An Institute of National Importance</p>
+                </div>
+            </div>
+            <div class="attendance-title">
+                <h2>Student Dashboard</h2>
+                <p id="studentInfo">Loading student information...</p>
+            </div>
+        </header>
+
+        <nav class="dashboard-nav">
+            <ul>
+                <li class="active"><a href="#attendance-overview">Attendance Overview</a></li>
+                <li><a href="#attendance-details">Attendance Details</a></li>
+                <li><a href="#attendance-analytics">Analytics</a></li>
+                <li class="logout"><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="attendance-overview" class="dashboard-section">
+                <h2>Attendance Overview</h2>
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-title">Overall Attendance</div>
+                        <div class="stat-value" id="overallAttendance">--</div>
+                        <div class="stat-footer">Total classes attended</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Attendance Percentage</div>
+                        <div class="stat-value" id="attendancePercentage">--</div>
+                        <div class="stat-footer">Minimum required: 75%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Classes Missed</div>
+                        <div class="stat-value" id="classesMissed">--</div>
+                        <div class="stat-footer">Total absences</div>
+                    </div>
+                </div>
+                
+                <div class="attendance-status">
+                    <h3>Attendance Status</h3>
+                    <div class="status-indicator" id="statusIndicator">
+                        <!-- Status will be shown here -->
+                    </div>
+                </div>
+            </section>
+
+            <section id="attendance-details" class="dashboard-section">
+                <h2>Attendance Details</h2>
+                <div class="attendance-calendar">
+                    <div class="month-selector">
+                        <button id="prevMonth">&lt;</button>
+                        <h3 id="currentMonth">October 2023</h3>
+                        <button id="nextMonth">&gt;</button>
+                    </div>
+                    <div class="calendar-grid" id="calendarGrid">
+                        <!-- Calendar will be populated here -->
+                    </div>
+                </div>
+            </section>
+
+            <section id="attendance-analytics" class="dashboard-section">
+                <h2>Attendance Analytics</h2>
+                <div class="analytics-chart">
+                    <canvas id="attendanceChart"></canvas>
+                </div>
+                <div class="analytics-info">
+                    <h3>Attendance Trends</h3>
+                    <p id="trendsInfo">Analyzing your attendance patterns...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="student-dashboard.js"></script>
+</body>
+</html> 

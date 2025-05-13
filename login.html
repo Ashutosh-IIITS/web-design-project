@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Attendance Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="college-info">
+                <img src="https://universitykart.b-cdn.net/Content/upload/admin/uibti1gw.4ea.png" alt="IIIT Sonepat Logo" class="college-logo">
+                <div class="college-details">
+                    <h1>Indian Institute of Information Technology, Sonepat</h1>
+                    <p>An Institute of National Importance</p>
+                </div>
+            </div>
+            <div class="attendance-title">
+                <h2>Attendance Management System</h2>
+                <p>Designed by: Ashutosh Maurya (12413043)</p>
+            </div>
+        </header>
+
+        <main>
+            <section class="login-section">
+                <h2>Login</h2>
+                <div class="login-container">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="username">Username/Roll Number</label>
+                            <input type="text" id="username" placeholder="Enter Username or Roll Number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Enter Password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Login as</label>
+                            <select id="role" required>
+                                <option value="">Select Role</option>
+                                <option value="student">Student</option>
+                                <option value="professor">Professor</option>
+                                <option value="cr">Class Representative (CR)</option>
+                                <option value="admin">Institute Admin</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="login-btn">Login</button>
+                    </form>
+                    <div class="login-info">
+                        <p>For demonstration purposes:</p>
+                        <ul>
+                            <li>Student: Roll Number as username, password is first 3 letters of name + last 2 digits of roll number (e.g., for Ashutosh Maurya with roll number 12413043, password would be "ash43")</li>
+                            <li>Professor: "professor" as username, "professor123" as password</li>
+                            <li>CR: "cr" as username, "cr123" as password</li>
+                            <li>Admin: "admin" as username, "admin123" as password</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

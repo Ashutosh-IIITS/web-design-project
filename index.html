@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+
+    <script src="students-data.js"></script>
+    <li class="logout"><a href="login.html">Logout</a></li>
+    <select id="role" required>
+        <option value="">Select Role</option>
+        <option value="student">Student</option>
+        <option value="professor">Professor</option>
+        <option value="cr">Class Representative (CR)</option>
+        <option value="admin">Institute Admin</option>
+    </select>
+    <div class="container">
+        <header>
+            <div class="college-info">
+                <img src="https://universitykart.b-cdn.net/Content/upload/admin/uibti1gw.4ea.png" alt="IIIT Sonepat Logo" class="college-logo">
+                <div class="college-details">
+                    <h1>Indian Institute of Information Technology, Sonepat</h1>
+                    <p>An Institute of National Importance</p>
+                    
+            </div>
+            <div class="attendance-title">
+                <h2>Attendance  Management System</h2>
+                <p>Designed by: Ashutosh Maurya (12413043)  </p>
+                 
+            </div>
+        </header>
+
+        <main>
+            <section class="add-student">
+                <h2>Add New Student</h2>
+                <form id="studentForm">
+                    <div class="form-group">
+                        <input type="text" id="studentName" placeholder="Enter student name" required>
+                        <input type="number" id="rollNumber" placeholder="Enter roll number" required onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                    </div>
+                    <button type="submit">Add Student</button>
+                </form>
+            </section>
+
+            <section class="attendance">
+                <h2>Mark Attendance</h2>
+                <div class="date-selector">
+                    <input type="date" id="attendanceDate" required>
+                </div>
+                <div class="quick-attendance">
+                    <h3>Quick Attendance by Serial Number or Roll Number</h3>
+                    <div class="quick-attendance-input">
+                        <input type="number" id="quickRollNumber" placeholder="Enter S.No (1-52) or Roll Number">
+                        <span id="studentNameDisplay"></span>
+                    </div>
+                    <p class="quick-attendance-help">Tip: Use Serial Numbers 1-52 for faster input</p>
+                </div>
+                <div id="studentList" class="student-list">
+                    <!-- Student list will be populated here -->
+                </div>
+                <button id="saveAttendance" class="save-btn">Save Attendance</button>
+            </section>
+
+            <section class="top-performers">
+                <h2>Top Performers</h2>
+                <div id="topPerformers" class="top-performers-list">
+                    <!-- Top performers will be displayed here -->
+                </div>
+            </section>
+
+            <section class="records">
+                <h2>Attendance Records</h2>
+                <div class="export-controls">
+                    <button id="exportCSV">Export to Excel  </button>
+                    <button id="clearRecords">Clear Records</button>
+                </div>
+                <div id="attendanceRecords" class="records-table">
+                    <!-- Attendance records will be displayed here -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

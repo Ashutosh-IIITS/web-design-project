@@ -1,0 +1,420 @@
+/* Shared Dashboard Styles */
+.dashboard-nav {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.dashboard-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dashboard-nav li {
+    flex: 1;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.dashboard-nav li a {
+    display: block;
+    padding: 1.2rem 1rem;
+    color: #7f8c8d;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.dashboard-nav li.active a {
+    color: #3498db;
+    border-bottom: 3px solid #3498db;
+}
+
+.dashboard-nav li:hover a {
+    color: #3498db;
+    background: rgba(52, 152, 219, 0.05);
+}
+
+.dashboard-nav li.logout {
+    border-left: 1px solid #eee;
+}
+
+.dashboard-nav li.logout a {
+    color: #e74c3c;
+}
+
+.dashboard-nav li.logout:hover a {
+    background: rgba(231, 76, 60, 0.05);
+}
+
+.dashboard-section {
+    margin-bottom: 2.5rem;
+    display: none; /* Hide sections by default */
+}
+
+.dashboard-section:target,
+.dashboard-section.active {
+    display: block; /* Show only the targeted or active section */
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Make the first section visible by default */
+#attendance-overview, 
+#mark-attendance, 
+#system-overview {
+    display: block;
+}
+
+/* Stats Cards */
+.stats-cards, 
+.class-stats, 
+.overview-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card, 
+.overview-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover, 
+.overview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stat-title,
+.card-title {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value,
+.card-value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.stat-footer {
+    font-size: 0.8rem;
+    color: #95a5a6;
+}
+
+/* Overview Cards */
+.overview-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.students-icon {
+    background: rgba(52, 152, 219, 0.1);
+    color: #3498db;
+}
+
+.classes-icon {
+    background: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+}
+
+.users-icon {
+    background: rgba(155, 89, 182, 0.1);
+    color: #9b59b6;
+}
+
+.attendance-icon {
+    background: rgba(241, 196, 15, 0.1);
+    color: #f1c40f;
+}
+
+/* Chart containers */
+.attendance-chart-container,
+.analytics-chart,
+.chart-container {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+}
+
+.overview-charts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Form elements and controls */
+.attendance-form,
+.filter-controls,
+.report-filters {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.batch-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.action-btn {
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.present-btn {
+    background: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+}
+
+.present-btn:hover {
+    background: rgba(46, 204, 113, 0.2);
+}
+
+.absent-btn {
+    background: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+}
+
+.absent-btn:hover {
+    background: rgba(231, 76, 60, 0.2);
+}
+
+.reset-btn {
+    background: rgba(189, 195, 199, 0.1);
+    color: #7f8c8d;
+}
+
+.reset-btn:hover {
+    background: rgba(189, 195, 199, 0.2);
+}
+
+/* Student attendance list */
+.student-attendance-list {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.student-item {
+    display: grid;
+    grid-template-columns: 50px 100px 1fr 100px;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #eee;
+    transition: all 0.2s;
+}
+
+.student-item:last-child {
+    border-bottom: none;
+}
+
+.student-item:hover {
+    background: #f8f9fa;
+}
+
+.student-item.present {
+    background: rgba(46, 204, 113, 0.05);
+}
+
+.student-item.absent {
+    background: rgba(231, 76, 60, 0.05);
+}
+
+/* Tables */
+.users-table-container,
+.records-table-container {
+    overflow-x: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+tr:hover td {
+    background: #f8f9fa;
+}
+
+/* Settings */
+.settings-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.settings-group {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.setting-item {
+    margin-bottom: 1.2rem;
+}
+
+.setting-item label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.setting-item input[type="text"],
+.setting-item input[type="number"],
+.setting-item select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.setting-item input:focus,
+.setting-item select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    outline: none;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkbox-item label {
+    margin-bottom: 0;
+}
+
+.maintenance-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.maintenance-btn {
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: none;
+    background: #f8f9fa;
+    color: #2c3e50;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.maintenance-btn:hover {
+    background: #e9ecef;
+}
+
+.maintenance-btn.danger {
+    background: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+}
+
+.maintenance-btn.danger:hover {
+    background: rgba(231, 76, 60, 0.2);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dashboard-nav ul {
+        flex-direction: column;
+    }
+    
+    .dashboard-nav li.logout {
+        border-left: none;
+        border-top: 1px solid #eee;
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .batch-actions {
+        flex-wrap: wrap;
+    }
+    
+    .stats-cards, 
+    .overview-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .overview-charts {
+        grid-template-columns: 1fr;
+    }
+    
+    .settings-container {
+        grid-template-columns: 1fr;
+    }
+} 
